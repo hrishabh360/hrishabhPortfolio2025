@@ -4,7 +4,103 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hrishabh | Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --primary-color: #02066F;
+      --light-bg: #f0f3ff;
+      --text-color: #222;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Outfit', 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--primary-color);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--card-bg);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .hero {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, rgba(2, 6, 111, 0.7), rgba(44, 84, 214, 0.6)), url('hero.jpg') center/cover no-repeat;
+      color: white;
+      position: relative;
+      animation: backgroundShift 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes backgroundShift {
+      0% {
+        background-position: center;
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        background-position: center;
+        filter: hue-rotate(30deg);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .cta:hover {
+      background-color: #e4e8ff;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -12,8 +108,11 @@
     <nav>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#blogs">Blogs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -21,52 +120,131 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h2>Hello, I'm Hrishabh 👋</h2>
-      <p>Aspiring Data Scientist | Software Developer | Problem Solver</p>
-      <a href="#projects" class="cta">View My Work</a>
+      <h2>Hello, I'm Hrishabh.</h2>
+      <p>Aspiring Data Scientist | Software Developer</p>
+      <a href="#projects" class="cta" download style="background-color: transparent; color: white; border: 2px solid white;">View My Work</a>
+      <a href="resume.pdf" class="cta" download style="margin-left: 1rem; background-color: transparent; color: white; border: 2px solid white;">Download Résumé</a>
     </div>
   </section>
 
-  <section id="about" class="about section">
-    <h2>About Me</h2>
-    <p>I’m a graduate student in Data Science with a strong foundation in software development, analytics, and machine learning. I'm passionate about turning data into actionable insights and building impactful tools.</p>
+  <section id="about" class="about section" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+  <br>
+  <h2>About Me</h2>
+  <div>
+  <img src="profile.jpg" alt="Hrishabh Photo" style="width: 100%; max-width: 250px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  </div>
+  <p>Welcome to my portfolio! I am Hrishabh, a passionate Data Scientist and Software Developer with a keen interest in leveraging data to drive insights and build innovative solutions. My journey in technology has been shaped by a blend of academic excellence and hands-on experience in software development, data engineering, and web technologies.</p>
+  <p>I am a highly motivated Data Science graduate student at the University of New Haven, with a strong academic and professional background in data engineering, software quality assurance, and web development. I hold a Bachelor's degree in Computer Engineering from Cosmos College of Management and Technology and bring a versatile skill set encompassing Python, SQL, Java, React, Angular, and Oracle.</p>
+  <p>Professionally, I have contributed to impactful projects such as the Nepal Stock Exchange (NEPSE) system, where I served as both a Software Development Engineer in Test and a Full-Stack Developer. My responsibilities included developing and testing core modules of the trading and fund management systems, enhancing software performance, and ensuring product reliability. I worked closely with cross-functional teams to implement features across the front-end and back-end, leveraging tools such as Java, Oracle, and modern web technologies to meet business and regulatory requirements.</p>
+  <p>In addition, my experience as a freelance web developer has allowed me to design and deliver interactive, data-driven websites, including a geographic data visualization platform for Nepal’s Motorable Local Roads Bridge Programme (MLRBP).</p>
+  <p>My academic journey and project experience reflect a deep interest in data-driven technologies, cloud infrastructure, and intelligent systems. I am passionate about leveraging data science to build scalable solutions and uncover meaningful insights. Open to exciting collaborations and opportunities, I aim to continuously grow as a problem-solver and contribute to innovations at the intersection of AI, analytics, and software engineering.</p>
   </section>
 
-  <section id="projects" class="projects section">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>PDF Parser AI</h3>
-        <p>AI-powered tool for extracting structured data from PDFs using NLP techniques.</p>
-        <a href="https://github.com/ADongol123/pdf_parser_ai" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>Website Traffic Analytics</h3>
-        <p>Real-time data pipeline using AWS to monitor and analyze website traffic.</p>
-      </div>
-      <div class="project-card">
-        <h3>Bridge Project Visualizer</h3>
-        <p>Web map for Nepal’s MLRBP project, built with a custom schema for thousands of data points.</p>
-      </div>
+  <section id="education" class="education section" style="border-top: 5px solid var(--primary-color);">
+  <br>
+  <h2>Education</h2>
+  <div class="education-list">
+    <div class="education-item">
+      <h3>University of New Haven</h3>
+      <p>Master of Science in Data Science</p>
+      <p>Expected Graduation: May 2025</p>
+    </div>
+    <div class="education-item">
+      <h3>Cosmos College of Management and Technology</h3>
+      <p>Bachelor of Engineering in Computer Engineering</p>
+      <p>Graduated: May 2021</p>
+    </div>
+  </div>
+  </section>
+
+  <section id="projects" class="projects section" style="border-top: 5px solid var(--primary-color);">
+  <br>
+  <h2>Projects</h2>
+  <div class="project-list">
+    <div class="project-card">
+      <h3>PDF Parser AI</h3>
+      <p>AI-powered tool for extracting structured data from PDFs using NLP techniques.</p>
+      <a href="https://github.com/ADongol123/pdf_parser_ai" target="_blank">View on GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Website Traffic Analytics</h3>
+      <p>Real-time data pipeline using AWS to monitor and analyze website traffic.</p>
+    </div>
+    <div class="project-card">
+      <h3>Bridge Project Visualizer</h3>
+      <p>Web map for Nepal’s MLRBP project, built with a custom schema for thousands of data points.</p>
+    </div>
     </div>
   </section>
 
-  <section id="skills" class="skills section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>SQL</li>
-      <li>Machine Learning</li>
-      <li>JavaScript</li>
-      <li>Data Visualization</li>
-      <li>AWS</li>
-    </ul>
-  </section>
+  <section id="skills" class="skills section" style="border-top: 5px solid var(--primary-color);">
+  <br>
+  <h2>Skills</h2>
+  <br>
+  <h3>💻 Programming Languages</h3>
+  <ul class="skills-list">
+    <li>Python</li>
+    <li>Java</li>
+    <li>JavaScript</li>
+    <li>TypeScript</li>
+    <li>HTML & CSS</li>
+    <li>Spring Boot</li>
+  </ul>
 
-  <section id="contact" class="contact section">
-    <h2>Contact</h2>
-    <p>Let's connect! Feel free to reach out via email or find me on LinkedIn.</p>
-    <a href="mailto:your.email@example.com" class="contact-button">Email Me</a>
+  <h3>📊 Data Science Tools</h3>
+  <ul class="skills-list">
+    <li>Pandas</li>
+    <li>NumPy</li>
+    <li>Matplotlib</li>
+    <li>Scikit-learn</li>
+    <li>TensorFlow</li>
+    <li>PyTorch</li>
+  </ul>
+
+  <h3>🧩 Frameworks & Libraries</h3>
+  <ul class="skills-list">
+    <li>Spring Boot</li>
+    <li>Angular</li>
+    <li>React</li>
+    <li>Flask</li>
+    <li>Node.js</li>
+  </ul>
+
+  <h3>🗄️ Database Systems</h3>
+  <ul class="skills-list">
+    <li>MySQL</li>
+    <li>MongoDB</li>
+    <li>Oracle DB</li>
+    <li>SQL Server</li>
+  </ul>
+
+  <h3>☁️ Cloud & Hosting</h3>
+  <ul class="skills-list">
+    <li>AWS</li>
+    <li>Firebase</li>
+    <li>Vercel</li>
+    <li>Netlify</li>
+  </ul>
+
+  <h3>🛠️ Tools</h3>
+  <ul class="skills-list">
+    <li>Git</li>
+    <li>GitHub</li>
+    <li>GitLab</li>
+    <li>Postman</li>
+    <li>JMeter</li>
+    <li>Swagger</li>
+    <li>Trello</li>
+    <li>JIRA</li>
+    <li>Docker</li>
+  </ul>
+</section>
+
+  <section id="contact" class="contact section" style="border-top: 5px solid var(--primary-color);">
+  <br>
+  <h2>Contact</h2>
+  <p>Let's connect! Feel free to reach out via email or find me on LinkedIn.</p>
+  <a href="mailto:your.email@example.com" class="contact-button">Email Me</a>
   </section>
 
   <footer class="footer">
@@ -76,3 +254,15 @@
   <script src="script.js"></script>
 </body>
 </html>
+<script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
