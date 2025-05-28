@@ -187,3 +187,38 @@
     }
   }
   
+
+      .experience-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .experience-item {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .experience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .experience-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .experience-item p,
+  .experience-item ul {
+    margin: 0.25rem 0;
+  }
+
+  .experience-item ul {
+    padding-left: 1.2rem;
+    list-style: disc;
+  }
