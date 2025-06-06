@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
   <style>
     :root {
@@ -104,7 +105,11 @@
 </head>
 <body>
   <header class="navbar">
-    <h1 class="logo">Hrishabh</h1>
+    <a href="index.html" style="text-decoration: none;">
+      <h1 class="logo" style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 800; color: #02066F;">
+        Hrishabh
+      </h1>
+    </a>
     <nav>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -112,20 +117,39 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Hello, I'm Hrishabh.</h2>
-      <p>Aspiring Data Scientist | Software Developer</p>
-      <a href="#projects" class="cta" download style="background-color: transparent; color: white; border: 2px solid white;">View My Work</a>
-      <a href="resume.pdf" class="cta" download style="margin-left: 1rem; background-color: transparent; color: white; border: 2px solid white;">Download Résumé</a>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Hello, I'm Hrishabh.</h2>
+    <p>Aspiring Data Scientist | Software Developer</p>
+    <a href="#projects" class="cta" download style="background-color: transparent; color: white; border: 2px solid white;">View My Work</a>
+    <a href="resume.pdf" class="cta" download style="margin-left: 1rem; background-color: transparent; color: white; border: 2px solid white;">Download Résumé</a>
+
+    <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem;">
+      <a href="https://www.linkedin.com/in/hrishabh-mahaju" target="_blank" style="color: white; font-size: 1.5rem;">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/hrishabh360" target="_blank" style="color: white; font-size: 1.5rem;">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.instagram.com/insta.hrishabh" target="_blank" style="color: white; font-size: 1.5rem;">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com/hrishabh360" target="_blank" style="color: white; font-size: 1.5rem;">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://medium.com/@hrishabh360" target="_blank" style="color: white; font-size: 1.5rem;">
+        <i class="fab fa-medium"></i>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section id="about" class="about section" style="display: flex; flex-direction: column; align-items: center; text-align: justify; gap: 2rem;">
   <br>
@@ -159,42 +183,106 @@
   <br>    
   <h2>Experience</h2>
   <div class="experience-list">
-    <div class="experience-item">
-      <h3>Software Development Engineer in Test (SDET) | Full-Stack Developer</h3>
-      <p>Nepal Stock Exchange (NEPSE)</p>
-      <p>June 2021 - Present</p>
+    <div class="experience-item" style="background: linear-gradient(rgb(252, 252, 252), rgba(138, 180, 228, 0.6)), url('yco-1.png') center center no-repeat;
+            align-items: center;
+            background-size: 250px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: rgb(0, 0, 0);">
+      <h3>YCO Pvt. Ltd., Nepal Stock Exchange (NEPSE) Project</h3>
+      <h4>Software Development Engineer in Test</h4>
+      <p> Jun 2023 - Jun 2024</p>
       <ul>
-        <li>Developed and tested core modules of the NEPSE trading and fund management systems.</li>
-        <li>Enhanced software performance and reliability through rigorous testing and debugging.</li>
-        <li>Collaborated with cross-functional teams to implement features across front-end and back-end.</li>
-        <li>Utilized Java, Oracle, and modern web technologies to meet business and regulatory requirements.</li>
+        <li>
+          Managed and optimized the Fund Management System and Trade Management System (microservices-based application), ensuring high availability, scalability, and security, while leading technical discussions, coordinating cross-functional teams, and serving as the key liaison between development, QA, and business stakeholders to align technical solutions with business objectives.
+        </li>
+        <li>
+          Assumed product ownership responsibilities, driving feature enhancements, prioritizing backlogs, and aligning development with business needs.
+        </li>
+        <li>
+          Contributed to software architecture design, API integrations, and system optimizations for high-frequency trading operations.
+        </li>
+        <li>
+          Improved software performance by 50% through comprehensive functionality, performance, and regression testing, identifying and resolving issues throughout the software development lifecycle (SDLC).
+        </li>
+        <li>
+          Participated in design reviews and risk assessments, identifying potential quality issues and recommending improvements, resulting in increased product robustness.
+        </li>
+        <li>
+          Conducted root cause analysis (RCA) investigations for defects and issues, providing actionable solutions and preventing future occurrences.
+        </li>
+      </ul>
+      <a href="yco_project_experience.html" class="cta" style="margin-top: 1rem; display: inline-block;">Read More</a>
+    </div>
+
+    <div class="experience-item" style="background: linear-gradient(rgb(255, 255, 255), rgba(138, 180, 228, 0.6)), url('yco-1.png') center center no-repeat;
+            align-items: center;
+            background-size: 250px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: rgb(0, 0, 0);">
+      <h3>YCO Pvt. Ltd., Nepal Stock Exchange (NEPSE) Project</h3>
+      <h4>Associate Software Development Engineer | Project Trainee |Intern</h4>
+      <p>Oct 2021 - May 2023</p>
+      <ul>
+        <li>
+          Applied High Availability (HA) architecture to the NEPSE Website, implementing a multi-server communication solution using Spring Boot, improving system reliability and user engagement by 30% in a high-traffic environment.
+        </li>
+        <li>
+          Refactored and optimized the Role-Based Access Control (RBAC) logic for the NEPSE Website (<a href="https://www.nepalstock.com" target="_blank">www.nepalstock.com</a>) to enhance security and user management.
+        </li>
+        <li>
+          Designed and optimized SQL stored procedures, enabling efficient data retrieval, API development, and integration for real-time user-facing applications.
+        </li>
+        <li>
+          Implemented caching mechanisms using Redis, reducing database load and improving response times for frequently accessed data.
+        </li>
+        <li>
+          Worked on microservices-based architecture, gaining expertise in broadcast, multicast communication patterns, and inter-service messaging for scalability and fault tolerance.
+        </li>
+        <li>
+          Containerized and deployed services using Docker, enhancing portability, scalability, and deployment efficiency across different environments.
+        </li>
+        <li>
+          Developed and customized reports using BIRT and Jasper Reporting, enabling comprehensive data visualization and business analytics for stakeholders.
+        </li>
       </ul>
     </div>
 
-    <div class="experience-item">
-      <h3>Software Development Engineer in Test (SDET) | Full-Stack Developer</h3>
-      <p>Nepal Stock Exchange (NEPSE)</p>
-      <p>June 2021 - Present</p>
+    <div class="experience-item" style="background: linear-gradient(rgb(255, 255, 255), rgba(138, 180, 228, 0.6)), url('lrbp.png') center center no-repeat;
+            align-items: center;
+            background-size: 850px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: rgb(0, 0, 0);">
+      <h3>Motorable Local Roads Bridge Program (MLRBP)</h3>
+      <h4>Freelance Web Developer</h4>
+      <p>Apr 2024 - May 2024</p>
       <ul>
-        <li>Developed and tested core modules of the NEPSE trading and fund management systems.</li>
-        <li>Enhanced software performance and reliability through rigorous testing and debugging.</li>
-        <li>Collaborated with cross-functional teams to implement features across front-end and back-end.</li>
-        <li>Utilized Java, Oracle, and modern web technologies to meet business and regulatory requirements.</li>
+        <li>
+          <strong>Website:</strong> <a href="https://webmap.lrbpnepal.org" target="_blank">https://webmap.lrbpnepal.org</a>
+        </li>
+        <li>
+          Led the design and development of the interactive website for the Motorable Local Roads Bridge Program (MLRBP), enabling visualization of completed and ongoing bridge projects across Nepal.
+        </li>
+        <li>
+          Implemented dynamic mapping features using the React-Leaflet library and GeoJSON, allowing users to interactively view bridge locations and project progress on an intuitive map interface.
+        </li>
+        <li>
+          Directed data management efforts, including data cleaning, schema creation, and organization of thousands of bridge-related data records for optimal display and filtering.
+        </li>
+        <li>
+          Developed and optimized backend services with MariaDB, designing efficient database schemas to handle large datasets and ensuring fast query responses for real-time data updates.
+        </li>
+        <li>
+          Containerized the application with Docker, streamlining deployment and ensuring consistency across development, testing, and production environments.
+        </li>
+        <li>
+          Collaborated with stakeholders to define project requirements and ensured the website aligned with the goals of the MLRBP to improve local infrastructure visibility.
+        </li>
+        <li>
+          Utilized MS Excel for preliminary data analysis, cleaning, and transformation before integrating into the website.
+        </li>
       </ul>
     </div>
 
-    <div class="experience-item">
-      <h3>Software Development Engineer in Test (SDET) | Full-Stack Developer</h3>
-      <p>Nepal Stock Exchange (NEPSE)</p>
-      <p>June 2021 - Present</p>
-      <ul>
-        <li>Developed and tested core modules of the NEPSE trading and fund management systems.</li>
-        <li>Enhanced software performance and reliability through rigorous testing and debugging.</li>
-        <li>Collaborated with cross-functional teams to implement features across front-end and back-end.</li>
-        <li>Utilized Java, Oracle, and modern web technologies to meet business and regulatory requirements.</li>
-      </ul>
-    </div>
-    
     </div>
     </section>
 

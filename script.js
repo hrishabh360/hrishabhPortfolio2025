@@ -21,10 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // Optional: Responsive navbar toggle (for future hamburger menu)
-    // const menuToggle = document.querySelector('.menu-toggle');
-    // const navLinks = document.querySelector('.nav-links');
-    // menuToggle.addEventListener('click', () => {
-    //   navLinks.classList.toggle('active');
-    // });
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
   });
-  
