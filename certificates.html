@@ -81,23 +81,42 @@
 </head>
 <body>
 
-<header class="navbar">
-  <a href="index.html" style="text-decoration: none;">
-    <h1 class="logo">Hrishabh</h1>
+<nav class="navbar navbar-expand-lg fixed-top" id="sideNav" style="background-color: #ffffff; border-bottom: 1px solid #e0e0e0;">
+  <a class="navbar-brand js-scroll-trigger" href="index.html">
+    <span class="d-block d-lg-none" style="font-weight: 800; color: #02066F;">Hrishabh</span>
   </a>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#education">Education</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="index.html#skills">Skills</a></li>
-      <li><a href="https://medium.com/@hrishabh360">Blogs</a></li>
-      <li><a href="certificates.html">Certificates</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none; color: #02066F;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto" style="gap: 1rem;">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#about" style="color: #02066F; font-weight: 500;">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#education" style="color: #02066F; font-weight: 500;">Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="experience.html" style="color: #02066F; font-weight: 500;">Experience</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="projects.html" style="color: #02066F; font-weight: 500;">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#skills" style="color: #02066F; font-weight: 500;">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://medium.com/@hrishabh360" style="color: #02066F; font-weight: 500;">Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="certificates.html" style="color: #02066F; font-weight: 500;">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#contact" style="color: #02066F; font-weight: 500;">Contact</a>
+      </li>
     </ul>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <section class="certificate-gallery" style="max-width: 960px; margin: auto;">
   <h2>Certificates</h2>
@@ -183,6 +202,11 @@
 
 
 <a href="index.html" class="cta">Back to Homepage</a>
+  <script src="script.js"></script>
+  <!-- Bootstrap dependencies (place before closing </body>) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </body>
 </html>

@@ -20,10 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(section);
     });
   
-    // Optional: Responsive navbar toggle (for future hamburger menu)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+
+  function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('show');
+  }
+  });
+
+
+   // Smooth scrolling for navigation links
+  document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });

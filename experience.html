@@ -53,25 +53,42 @@
 </head>
 <body>
 
-<header class="navbar" style="width: 100%; position: sticky; top: 0; background-color: #ffffff; z-index: 999; margin-top: 0; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); display: flex; justify-content: space-between; align-items: center;">
-  <a href="index.html" style="text-decoration: none;">
-    <h1 class="logo" style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 800; color: #02066F;">
-        Hrishabh
-    </h1>
-    </a>
-  <nav>
-    <ul class="nav-links" style="list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;">
-        <li><a href="index.html#about" style="text-decoration: none; color: #02066F; font-weight: 500;">About</a></li>
-        <li><a href="index.html#education" style="text-decoration: none; color: #02066F; font-weight: 500;">Education</a></li>
-        <li><a href="experience.html" style="text-decoration: none; color: #02066F; font-weight: 500;">Experience</a></li>
-        <li><a href="projects.html" style="text-decoration: none; color: #02066F; font-weight: 500;">Projects</a></li>
-        <li><a href="index.html#skills" style="text-decoration: none; color: #02066F; font-weight: 500;">Skills</a></li>
-        <li><a href="https://medium.com/@hrishabh360" style="text-decoration: none; color: #02066F; font-weight: 500;">Blogs</a></li>
-        <li><a href="certificates.html">Certificates</a></li>
-        <li><a href="index.html#contact" style="text-decoration: none; color: #02066F; font-weight: 500;">Contact</a></li>
+<nav class="navbar navbar-expand-lg fixed-top" id="sideNav" style="background-color: #ffffff; border-bottom: 1px solid #e0e0e0;">
+  <a class="navbar-brand js-scroll-trigger" href="index.html">
+    <span class="d-block d-lg-none" style="font-weight: 800; color: #02066F;">Hrishabh</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none; color: #02066F;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto" style="gap: 1rem;">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#about" style="color: #02066F; font-weight: 500;">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#education" style="color: #02066F; font-weight: 500;">Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="experience.html" style="color: #02066F; font-weight: 500;">Experience</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="projects.html" style="color: #02066F; font-weight: 500;">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#skills" style="color: #02066F; font-weight: 500;">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://medium.com/@hrishabh360" style="color: #02066F; font-weight: 500;">Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="certificates.html" style="color: #02066F; font-weight: 500;">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#contact" style="color: #02066F; font-weight: 500;">Contact</a>
+      </li>
     </ul>
-  </nav>
-</header>
+  </div>
+</nav>
 
  <section id="experience" class="experience section">
   <h2>Experience</h2>
@@ -184,5 +201,11 @@
 
   
 <a href="index.html" class="cta" style="margin: 2rem auto; display: block; width: fit-content;">Back to Homepage</a>
+
+  <script src="script.js"></script>
+  <!-- Bootstrap dependencies (place before closing </body>) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </body>
 </html>

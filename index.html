@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="profile.jpg">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hrishabh | Data Scientist</title>
@@ -104,25 +106,44 @@
   </style>
 </head>
 <body>
-  <header class="navbar">
-    <a href="index.html" style="text-decoration: none;">
-      <h1 class="logo" style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 800; color: #02066F;">
-        Hrishabh
-      </h1>
-    </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="https://medium.com/@hrishabh360">Blogs</a></li>
-        <li><a href="certificates.html">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="sideNav" style="background-color: #ffffff; border-bottom: 1px solid #e0e0e0;">
+  <a class="navbar-brand js-scroll-trigger" href="index.html">
+    <span class="d-block d-lg-none" style="font-weight: 800; color: #02066F;">Hrishabh</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none; color: #02066F;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto" style="gap: 1rem;">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#about" style="color: #02066F; font-weight: 500;">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#education" style="color: #02066F; font-weight: 500;">Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="experience.html" style="color: #02066F; font-weight: 500;">Experience</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="projects.html" style="color: #02066F; font-weight: 500;">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#skills" style="color: #02066F; font-weight: 500;">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="https://medium.com/@hrishabh360" style="color: #02066F; font-weight: 500;">Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="certificates.html" style="color: #02066F; font-weight: 500;">Certificates</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="index.html#contact" style="color: #02066F; font-weight: 500;">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
 <section class="hero">
   <div class="hero-content">
@@ -260,17 +281,10 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Bootstrap dependencies (place before closing </body>) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </body>
 </html>
-<script>
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+ 
