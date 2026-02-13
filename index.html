@@ -38,7 +38,7 @@
       color: var(--primary-color);
     }
 
-    .hero {
+    /* .hero {
       height: 100vh;
       width: 100%;
       display: flex;
@@ -66,7 +66,50 @@
       z-index: 2;
       padding: 2rem;
       text-align: center;
+    } */
+
+
+    .hero {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
     }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+          to right,
+          rgba(2, 6, 111, 0.7),
+          rgba(44, 84, 214, 0.6)
+        );
+      z-index: 1;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+      
 
     .cta {
       display: inline-block;
@@ -264,6 +307,38 @@
   <footer class="footer">
     <p>&copy; 2025 Hrishabh. All rights reserved.</p>
   </footer>
+
+
+<script>
+  const images = [
+    "hero.jpg",
+    "hero2.1.png",
+    // "hero3.jpeg",
+    "hero4.jpeg"
+  ]; // Add as many as you like
+
+  const hero = document.querySelector(".hero");
+
+  images.forEach((img, index) => {
+    const slide = document.createElement("div");
+    slide.classList.add("hero-slide");
+    slide.style.backgroundImage = `url('${img}')`;
+    
+    if (index === 0) slide.classList.add("active");
+
+    hero.appendChild(slide);
+  });
+
+  const slides = document.querySelectorAll(".hero-slide");
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 4000); // change every 4 seconds
+</script>
+
 
   <script src="script.js"></script>
   <!-- Bootstrap dependencies (place before closing </body>) -->
