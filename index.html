@@ -128,6 +128,14 @@
       background-color: #e4e8ff;
       transform: translateY(-2px);
     }
+
+
+    @media (max-width: 768px) {
+    #about > div {
+      flex-direction: column;
+    }
+}
+
   </style>
 </head>
 <body>
@@ -201,16 +209,60 @@
 </section>
 
 
-  <section id="about" class="about section" style="display: flex; flex-direction: column; align-items: center; text-align: justify; gap: 2rem;">
+  <!-- <section id="about" class="about section" style="display: flex; flex-direction: column; align-items: center; text-align: justify; gap: 2rem;">
   <br>
   <h2>About Me</h2>
   <div>
-  <img src="profile.jpg" alt="Hrishabh Photo" style="width: 100%; max-width: 250px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  <img src="hrishabh2.jpg" alt="Hrishabh Photo" style="width: 100%; max-width: 250px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   </div>
   <p>Welcome to my portfolio! I am Hrishabh, a passionate Data Scientist and Software Developer with a keen interest in leveraging data to drive insights and build innovative solutions. My journey in technology has been shaped by a blend of academic excellence and hands-on experience in software development, data engineering, and web technologies.</p>
   <p>Professionally, I have contributed to impactful projects such as the Nepal Stock Exchange (NEPSE) system, where I served as both a Software Development Engineer in Test and a Full-Stack Developer. My responsibilities included developing and testing core modules of the trading and fund management systems, enhancing software performance, and ensuring product reliability. I worked closely with cross-functional teams to implement features across the front-end and back-end, leveraging tools such as Java, Oracle, and modern web technologies to meet business and regulatory requirements.</p>
   <p>I am passionate about leveraging data science to build scalable solutions and uncover meaningful insights. Open to exciting collaborations and opportunities, I aim to continuously grow as a problem-solver and contribute to innovations at the intersection of AI, analytics, and software engineering.</p>
-  </section>
+  </section> -->
+
+  <section id="about" class="about section" 
+  style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+
+  <h2>About Me</h2>
+
+  <!-- Flex container -->
+  <div style="display: flex; gap: 3rem; width: 100%; align-items: center;">
+
+    <!-- Text (3 parts) -->
+    <div style="flex: 3; text-align: justify;">
+      <p>
+        Welcome to my portfolio! I am Hrishabh, a passionate Data Scientist and Software Developer
+        with a keen interest in leveraging data to drive insights and build innovative solutions.
+        My journey in technology has been shaped by a blend of academic excellence and hands-on
+        experience in software development, data engineering, and web technologies.
+      </p>
+
+      <p>
+        Professionally, I have contributed to impactful projects such as the Nepal Stock Exchange
+        (NEPSE) system, where I served as both a Software Development Engineer in Test and a
+        Full-Stack Developer. My responsibilities included developing and testing core modules of
+        the trading and fund management systems, enhancing software performance, and ensuring
+        product reliability.
+      </p>
+
+      <p>
+        I am passionate about leveraging data science to build scalable solutions and uncover
+        meaningful insights. Open to exciting collaborations and opportunities, I aim to
+        continuously grow as a problem-solver and contribute to innovations at the intersection
+        of AI, analytics, and software engineering.
+      </p>
+    </div>
+
+    <!-- Image (1 part) -->
+    <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+      <img src="hrishabh2.jpg" alt="Hrishabh Photo"
+        style="width: 100%; max-width: 250px; object-fit: cover;
+        border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </div>
+
+  </div>
+</section>
+
 
   <section id="education" class="education section" style="border-top: 5px solid var(--primary-color);">
   <br>
