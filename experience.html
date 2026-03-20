@@ -1,244 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="profile.jpg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YCO Pvt. Ltd. - Project Experience</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">  
+  <title>Experience | Hrishabh Mahaju</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+
   <style>
     :root {
-  --primary-color: #02066F;
+      --navy: #02066F;
+      --navy-deep: #010447;
+      --accent: #3B5BDB;
+      --accent-light: #748FFC;
+      --bg: #F7F8FC;
+      --bg-card: #ffffff;
+      --text: #1a1a2e;
+      --text-muted: #6b7280;
+      --border: #e5e7f0;
     }
 
-    h2 {
-      color: #02066F;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
     }
-    .project {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      color: #222;
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247, 248, 252, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--navy);
+      background: rgba(2,6,111,0.06);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--bg); padding: 1rem 2rem; border-bottom: 1px solid var(--border); gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--navy-deep);
+      padding: 7rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(116,143,252,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(116,143,252,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .page-hero-content { position: relative; z-index: 2; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.02rem;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── TIMELINE LAYOUT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), rgba(59,91,219,0.1));
+      border-radius: 2px;
+    }
+
+    /* ── EXPERIENCE CARD ── */
+    .exp-card {
+      position: relative;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
       padding: 2rem;
-      max-width: 960px;
-      margin: auto;
       margin-bottom: 2rem;
+      transition: box-shadow 0.25s, transform 0.25s;
     }
-    .project h3 {
-      margin-bottom: 0.3rem;
+
+    .exp-card:hover {
+      box-shadow: 0 12px 36px rgba(2,6,111,0.09);
+      transform: translateX(4px);
     }
-    .project p {
-      margin: 0.2rem 0 1rem;
+
+    /* Timeline dot */
+    .exp-card::before {
+      content: "";
+      position: absolute;
+      left: -2.45rem;
+      top: 1.85rem;
+      width: 12px; height: 12px;
+      background: var(--accent);
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(59,91,219,0.2);
     }
-    ul {
-      padding-left: 1.5rem;
-    }
-    ul li {
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
       margin-bottom: 0.5rem;
     }
 
-    .cta {
-  padding: 0.6rem 1.2rem;
-  background-color: var(--primary-color);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-.cta:hover {
-  background-color: #1a1aff;
-}
+    .exp-company {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
 
+    .exp-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+      background: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .exp-current {
+      background: #059669;
+    }
+
+    .exp-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-location {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .exp-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .stack-tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: #374151;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 5px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .exp-bullets li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: "▸";
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+      font-size: 0.85rem;
+    }
+
+    .exp-bullets li strong { color: var(--navy); }
+
+    .exp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1.5px solid var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 7px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .exp-link:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Promotion badge inside same company */
+    .exp-promotion {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: #fef3c7;
+      color: #b45309;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #010335;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+    }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top" id="sideNav" style="background-color: #ffffff; border-bottom: 1px solid #e0e0e0;">
-  <a class="navbar-brand js-scroll-trigger" href="index.html">
-    <span class="d-block d-lg-none" style="font-weight: 800; color: #02066F;">Hrishabh</span>
-  </a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto" style="gap: 1rem;">
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#about" style="color: #02066F; font-weight: 500;">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#education" style="color: #02066F; font-weight: 500;">Education</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="experience.html" style="color: #02066F; font-weight: 500;">Experience</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="projects.html" style="color: #02066F; font-weight: 500;">Projects</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#skills" style="color: #02066F; font-weight: 500;">Skills</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="https://medium.com/@hrishabh360" style="color: #02066F; font-weight: 500;">Blogs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="certificates.html" style="color: #02066F; font-weight: 500;">Certificates</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#contact" style="color: #02066F; font-weight: 500;">Contact</a>
-      </li>
-    </ul>
-  </div>
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html">HM</a>
+  <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="experience.html" class="active">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#certifications">Certifications</a></li>
+    <li><a href="https://medium.com/@hrishabh360" target="_blank">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
 </nav>
 
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <span class="section-label">Career Timeline</span>
+    <h1>Work Experience</h1>
+    <p>3+ years of production software engineering across national-scale systems, AI development, and cloud data pipelines.</p>
+  </div>
+</div>
 
+<!-- MAIN TIMELINE -->
+<main>
+  <div class="timeline">
 
- <section id="experience" class="experience section">
-  <h2>Experience</h2>
-      <div class="experience-list">
-        <div class="experience-item" style="background: linear-gradient(rgb(252, 252, 252), rgba(138, 180, 228, 0.6)), url('ata.png') center center no-repeat;
-                align-items: center;
-                background-size: 250px;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: rgb(0, 0, 0);">
-      
-      <h3>AI Trusted Advisors (Webstars LLC), USA</h3>
-      <h4>AI Engineer Intern | Founding Team Contributor</h4>
-      <p>Oct 2025 - Present</p>
-
-      <ul>
-        <li>
-          Designed and developed custom Voice AI agents, AI automation systems, and MCP platform solutions to support internal operations, partners, and client-facing AI applications.
-        </li>
-        <li>
-          Engineered backend frameworks and deployed scalable AI-driven applications, ensuring uptime, performance reliability, and infrastructure management.
-        </li>
-        <li>
-          Built and optimized AI-powered marketing automation systems including cold email infrastructure, A/B testing frameworks, and AI agents for social media engagement and lead generation.
-        </li>
-        <li>
-          Developed intelligent lead-generation and appointment-setting AI systems, contributing directly to revenue-generating automation pipelines under a performance-based compensation model.
-        </li>
-        <li>
-          Collaborated with cross-functional teams to architect, deploy, and continuously optimize AI solutions while maintaining platform security, compliance, and data confidentiality standards.
-        </li>
+    <!-- AI Trusted Advisors -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">AI Trusted Advisors — Webstars LLC</div>
+        <span class="exp-date exp-current">Oct 2025 – Present</span>
+      </div>
+      <div class="exp-role">AI Engineer Intern · Founding Team Contributor</div>
+      <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Remote, USA</div>
+      <div class="exp-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Voice AI</span>
+        <span class="stack-tag">LangChain</span>
+        <span class="stack-tag">MCP</span>
+        <span class="stack-tag">ReactJS</span>
+        <span class="stack-tag">NodeJS</span>
+        <span class="stack-tag">Agile</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Designed and developed custom <strong>Voice AI agents</strong> and MCP platform solutions to support client acquisition, internal automation, and partner integrations for a U.S.-focused AI advisory startup.</li>
+        <li>Built backend infrastructure for agent/partner access portals, including usage tracking, billing, and platform reliability; responsible for weekly backups and outage response.</li>
+        <li>Developed AI-powered cold outreach automation with <strong>A/B testing pipelines</strong> targeting 50,000–100,000+ emails/month, and social media AI agents across LinkedIn, Reddit, Instagram, and TikTok.</li>
+        <li>Architecting end-to-end AI agent workflows using LangChain and MCP, integrating with client CRMs and communication platforms to automate lead qualification and appointment-setting pipelines.</li>
+        <li>Collaborating directly with founding team on technical architecture, platform security, compliance, and product roadmap decisions.</li>
       </ul>
     </div>
 
-    <div class="experience-item" style="background: linear-gradient(rgb(252, 252, 252), rgba(138, 180, 228, 0.6)), url('yco-1.png') center center no-repeat;
-            align-items: center;
-            background-size: 250px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: rgb(0, 0, 0);">
-      <h3>YCO Pvt. Ltd., Nepal Stock Exchange (NEPSE) Project</h3>
-      <h4>Software Development Engineer in Test</h4>
-      <p> Jun 2023 - Jun 2024</p>
-      <ul>
-        <li>
-          Managed and optimized the Fund Management System and Trade Management System (microservices-based application), ensuring high availability, scalability, and security, while leading technical discussions, coordinating cross-functional teams, and serving as the key liaison between development, QA, and business stakeholders to align technical solutions with business objectives.
-        </li>
-        <li>
-          Assumed product ownership responsibilities, driving feature enhancements, prioritizing backlogs, and aligning development with business needs.
-        </li>
-        <li>
-          Contributed to software architecture design, API integrations, and system optimizations for high-frequency trading operations.
-        </li>
-        <li>
-          Improved software performance by 50% through comprehensive functionality, performance, and regression testing, identifying and resolving issues throughout the software development lifecycle (SDLC).
-        </li>
-        <li>
-          Participated in design reviews and risk assessments, identifying potential quality issues and recommending improvements, resulting in increased product robustness.
-        </li>
-        <li>
-          Conducted root cause analysis (RCA) investigations for defects and issues, providing actionable solutions and preventing future occurrences.
-        </li>
+    <!-- YCO SDET -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">YCO Pvt. Ltd. — NEPSE Project</div>
+        <span class="exp-date">Jun 2023 – Jun 2024</span>
+      </div>
+      <div class="exp-role">Software Development Engineer in Test (SDET)</div>
+      <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</div>
+      <div class="exp-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Selenium</span>
+        <span class="stack-tag">JMeter</span>
+        <span class="stack-tag">Burp Suite</span>
+        <span class="stack-tag">Postman</span>
+        <span class="stack-tag">Bash</span>
+        <span class="stack-tag">Scrum</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Improved software performance by <strong>50%</strong> through full automation testing (functional, regression, performance) across a microservices-based Fund Management and Trade Management System for Nepal's national stock exchange.</li>
+        <li>Acted as <strong>Product Owner</strong>: owned QA backlog, prioritized features across 3 cross-functional teams, and conducted RCA investigations that cut recurring production incidents by ~40%.</li>
+        <li>Contributed to API design reviews and security assessments using Burp Suite, identifying vulnerabilities before production release.</li>
+        <li>Participated in software architecture discussions and system optimization initiatives for high-availability (HA) trading infrastructure handling thousands of concurrent transactions.</li>
       </ul>
-      <a href="yco_project_experience.html" class="cta" style="margin-top: 1rem; display: inline-block;">Read More</a>
+      <a href="yco_project_experience.html" class="exp-link">
+        <i class="fas fa-folder-open"></i> View Detailed NEPSE Projects
+      </a>
     </div>
 
-    <div class="experience-item" style="background: linear-gradient(rgb(255, 255, 255), rgba(138, 180, 228, 0.6)), url('yco-1.png') center center no-repeat;
-            align-items: center;
-            background-size: 250px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: rgb(0, 0, 0);">
-      <h3>YCO Pvt. Ltd., Nepal Stock Exchange (NEPSE) Project</h3>
-      <h4>Associate Software Development Engineer | Project Trainee |Intern</h4>
-      <p>Oct 2021 - May 2023</p>
-      <ul>
-        <li>
-          Applied High Availability (HA) architecture to the NEPSE Website, implementing a multi-server communication solution using Spring Boot, improving system reliability and user engagement by 30% in a high-traffic environment.
-        </li>
-        <li>
-          Refactored and optimized the Role-Based Access Control (RBAC) logic for the NEPSE Website (<a href="https://www.nepalstock.com" target="_blank">www.nepalstock.com</a>) to enhance security and user management.
-        </li>
-        <li>
-          Designed and optimized SQL stored procedures, enabling efficient data retrieval, API development, and integration for real-time user-facing applications.
-        </li>
-        <li>
-          Implemented caching mechanisms using Redis, reducing database load and improving response times for frequently accessed data.
-        </li>
-        <li>
-          Worked on microservices-based architecture, gaining expertise in broadcast, multicast communication patterns, and inter-service messaging for scalability and fault tolerance.
-        </li>
-        <li>
-          Containerized and deployed services using Docker, enhancing portability, scalability, and deployment efficiency across different environments.
-        </li>
-        <li>
-          Developed and customized reports using BIRT and Jasper Reporting, enabling comprehensive data visualization and business analytics for stakeholders.
-        </li>
+    <!-- YCO Dev -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">YCO Pvt. Ltd. — NEPSE Project</div>
+        <span class="exp-date">Oct 2021 – May 2023</span>
+      </div>
+      <div class="exp-promotion"><i class="fas fa-arrow-up"></i> Promoted from Intern → Trainee → Associate SDE</div>
+      <div class="exp-role">Associate Software Development Engineer</div>
+      <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</div>
+      <div class="exp-stack">
+        <span class="stack-tag">Java</span>
+        <span class="stack-tag">Spring Boot</span>
+        <span class="stack-tag">Angular</span>
+        <span class="stack-tag">MSSQL</span>
+        <span class="stack-tag">Redis</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">BIRT</span>
+        <span class="stack-tag">Jasper</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Implemented <strong>High Availability (HA)</strong> multi-server architecture for nepalstock.com using Spring Boot, boosting system reliability and driving a <strong>30% improvement in user engagement</strong> under peak-traffic loads.</li>
+        <li>Refactored and secured <strong>Role-Based Access Control (RBAC)</strong> logic for Nepal's national stock exchange website, improving user permission management and reducing unauthorized-access risk.</li>
+        <li>Engineered <strong>Redis caching layer</strong> for frequently accessed endpoints, measurably reducing database load and cutting average response times for real-time data feeds.</li>
+        <li>Designed and optimized SQL stored procedures for high-throughput data retrieval, supporting API development and real-time user-facing applications at national scale.</li>
+        <li>Containerized and deployed microservices using Docker; developed custom BIRT and Jasper reports replacing manual stakeholder reporting workflows.</li>
       </ul>
     </div>
 
-    <div class="experience-item" style="background: linear-gradient(rgb(255, 255, 255), rgba(138, 180, 228, 0.6)), url('lrbp.png') center center no-repeat;
-            align-items: center;
-            background-size: 850px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: rgb(0, 0, 0);">
-      <h3>Motorable Local Roads Bridge Program (MLRBP)</h3>
-      <h4>Freelance Web Developer</h4>
-      <p>Apr 2024 - May 2024</p>
-      <ul>
-        <li>
-          <strong>Website:</strong> <a href="https://webmap.lrbpnepal.org" target="_blank">https://webmap.lrbpnepal.org</a>
-        </li>
-        <li>
-          Led the design and development of the interactive website for the Motorable Local Roads Bridge Program (MLRBP), enabling visualization of completed and ongoing bridge projects across Nepal.
-        </li>
-        <li>
-          Implemented dynamic mapping features using the React-Leaflet library and GeoJSON, allowing users to interactively view bridge locations and project progress on an intuitive map interface.
-        </li>
-        <li>
-          Directed data management efforts, including data cleaning, schema creation, and organization of thousands of bridge-related data records for optimal display and filtering.
-        </li>
-        <li>
-          Developed and optimized backend services with MariaDB, designing efficient database schemas to handle large datasets and ensuring fast query responses for real-time data updates.
-        </li>
-        <li>
-          Containerized the application with Docker, streamlining deployment and ensuring consistency across development, testing, and production environments.
-        </li>
-        <li>
-          Collaborated with stakeholders to define project requirements and ensured the website aligned with the goals of the MLRBP to improve local infrastructure visibility.
-        </li>
-        <li>
-          Utilized MS Excel for preliminary data analysis, cleaning, and transformation before integrating into the website.
-        </li>
+    <!-- MLRBP -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">Motorable Local Roads Bridge Program (MLRBP)</div>
+        <span class="exp-date">Apr 2024 – May 2024</span>
+      </div>
+      <div class="exp-role">Freelance Full-Stack Web Developer</div>
+      <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Lalitpur, Nepal &nbsp;·&nbsp; <i class="fas fa-globe"></i> <a href="https://webmap.lrbpnepal.org" target="_blank" style="color: var(--accent); text-decoration: none;">webmap.lrbpnepal.org</a></div>
+      <div class="exp-stack">
+        <span class="stack-tag">ReactJS</span>
+        <span class="stack-tag">NextJS</span>
+        <span class="stack-tag">React-Leaflet</span>
+        <span class="stack-tag">GeoJSON</span>
+        <span class="stack-tag">MariaDB</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">MS Excel</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Designed and built an end-to-end <strong>interactive geospatial web application</strong> visualizing 1,000+ bridge projects nationwide for Nepal's national bridge infrastructure program.</li>
+        <li>Implemented dynamic map rendering using <strong>React-Leaflet and GeoJSON</strong> for intuitive, filterable geographic data exploration across all provinces.</li>
+        <li>Engineered MariaDB backend with optimized schemas for large-scale bridge datasets, ensuring fast query response times for real-time updates.</li>
+        <li>Containerized the full application stack with Docker, streamlining deployment across development and production environments.</li>
       </ul>
     </div>
 
-    </div>
-    </section>
+  </div>
+</main>
 
+<footer>
+  <p>&copy; 2026 Hrishabh Mahaju. All rights reserved.</p>
+</footer>
 
+<script>
+  document.getElementById("navToggle").addEventListener("click", () => {
+    document.getElementById("navLinks").classList.toggle("open");
+  });
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
 
-  
-<a href="index.html" class="cta" style="margin: 2rem auto; display: block; width: fit-content;">Back to Homepage</a>
-
-  <script src="script.js"></script>
-  <!-- Bootstrap dependencies (place before closing </body>) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

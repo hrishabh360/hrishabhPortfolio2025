@@ -1,196 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="profile.jpg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YCO Pvt. Ltd. - Project Experience</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">  
+  <title>NEPSE Projects | Hrishabh Mahaju</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+
   <style>
     :root {
-  --primary-color: #02066F;
+      --navy: #02066F;
+      --navy-deep: #010447;
+      --accent: #3B5BDB;
+      --accent-light: #748FFC;
+      --bg: #F7F8FC;
+      --text: #1a1a2e;
+      --text-muted: #6b7280;
+      --border: #e5e7f0;
     }
 
-    h2 {
-      color: #02066F;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
-    .project {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      color: #222;
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247,248,252,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: rgba(2,6,111,0.06); }
+
+    .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: var(--navy); cursor: pointer; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--bg); padding: 1rem 2rem; border-bottom: 1px solid var(--border); gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--navy-deep);
+      padding: 7rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(116,143,252,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(116,143,252,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .page-hero-content { position: relative; z-index: 2; }
+
+    .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1rem;
+    }
+
+    .breadcrumb-nav a { color: var(--accent-light); text-decoration: none; }
+    .breadcrumb-nav a:hover { color: white; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    /* ── PROJECT CARDS ── */
+    .project-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
       padding: 2rem;
-      max-width: 960px;
-      margin: auto;
       margin-bottom: 2rem;
+      transition: box-shadow 0.25s;
     }
-    .project h3 {
+
+    .project-block:hover { box-shadow: 0 10px 32px rgba(2,6,111,0.08); }
+
+    .project-block-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+    }
+
+    .project-block h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
       margin-bottom: 0.3rem;
     }
-    .project p {
-      margin: 0.2rem 0 1rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
+
+    .project-block .desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
     }
 
-    .cta {
-  padding: 0.6rem 1.2rem;
-  background-color: var(--primary-color);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-.cta:hover {
-  background-color: #1a1aff;
-}
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
 
+    .stack-tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: #374151;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 5px;
+    }
+
+    .project-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .project-bullets li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.91rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    .project-bullets li::before {
+      content: "▸";
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      margin-top: 0.07rem;
+    }
+
+    .project-bullets li strong { color: var(--navy); }
+
+    /* ── BACK BUTTON ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      border: 1.5px solid var(--accent);
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      margin-bottom: 2.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .back-link:hover { background: var(--accent); color: white; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #010335;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+    }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top" id="sideNav" style="background-color: #ffffff; border-bottom: 1px solid #e0e0e0;">
-  <a class="navbar-brand js-scroll-trigger" href="index.html">
-    <span class="d-block d-lg-none" style="font-weight: 800; color: #02066F;">Hrishabh</span>
-  </a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto" style="gap: 1rem;">
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#about" style="color: #02066F; font-weight: 500;">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#education" style="color: #02066F; font-weight: 500;">Education</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="experience.html" style="color: #02066F; font-weight: 500;">Experience</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="projects.html" style="color: #02066F; font-weight: 500;">Projects</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#skills" style="color: #02066F; font-weight: 500;">Skills</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="https://medium.com/@hrishabh360" style="color: #02066F; font-weight: 500;">Blogs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="certificates.html" style="color: #02066F; font-weight: 500;">Certificates</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="index.html#contact" style="color: #02066F; font-weight: 500;">Contact</a>
-      </li>
-    </ul>
-  </div>
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html">HM</a>
+  <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="experience.html" class="active">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#certifications">Certifications</a></li>
+    <li><a href="https://medium.com/@hrishabh360" target="_blank">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
 </nav>
 
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb-nav">
+      <a href="experience.html">Experience</a>
+      <span>›</span>
+      <span>YCO Pvt. Ltd.</span>
+    </div>
+    <span class="section-label">Deep Dive</span>
+    <h1>Projects at YCO Pvt. Ltd.<br>— NEPSE</h1>
+    <p>Detailed breakdown of the national-scale financial systems built and tested for Nepal Stock Exchange.</p>
+  </div>
+</div>
 
-  <h1 class="project">Projects at YCO Solutions Pvt. Ltd.</h1>
-  <div class="project">
-    <h2>Fund Management System</h2>
-    <h3>The Fund Management System represents an independent intermediary project established by NEPSE (Nepal Stock Exchange) for the purpose of overseeing and managing the daily inflow and outflow of payment transactions within the Trade Management System (TMS).</h3>
-    <ul>
-      <li>
-        Conduct thorough product testing, including functional, performance, and regression testing, to identify and resolve issues during the development lifecycle.
-      </li>
-      <li>
-        Collaborate with cross-functional teams like NCHL (Nepal Clearing House Limited), ESEWA, KHALTI, IMEPay, Global IME, etc., to establish product quality metrics and goals, leading to delivery of product with significant overall product performance.
-      </li>
-      <li>
-        Utilize automation testing tools (jMeter) and methodologies and manual testing techniques to ensure comprehensive test coverage.
-      </li>
-      <li>
-        Create, maintain, and improve documentation related to software testing activities essential for effective communication and quality control, ensuring that software meets the required standards and specifications.
-      </li>
+<!-- MAIN -->
+<main>
+
+  <a href="experience.html" class="back-link reveal">
+    <i class="fas fa-arrow-left"></i> Back to Experience
+  </a>
+
+  <!-- Fund Management System -->
+  <div class="project-block reveal">
+    <div class="project-num">Project 01</div>
+    <h2>Fund Management System (FMS)</h2>
+    <p class="desc">An independent intermediary system established by NEPSE to oversee and manage daily inflow and outflow of payment transactions within the Trade Management System, integrating with major national payment gateways.</p>
+    <div class="project-stack">
+      <span class="stack-tag">Java</span>
+      <span class="stack-tag">Spring Boot</span>
+      <span class="stack-tag">JMeter</span>
+      <span class="stack-tag">Selenium</span>
+      <span class="stack-tag">MSSQL</span>
+      <span class="stack-tag">Postman</span>
+    </div>
+    <ul class="project-bullets">
+      <li>Conducted thorough product testing including <strong>functional, performance, and regression testing</strong> to identify and resolve issues during the development lifecycle.</li>
+      <li>Collaborated with cross-functional teams including <strong>NCHL, ESEWA, Khalti, IMEPay, and Global IME</strong> to establish quality metrics, driving significant overall product performance improvements.</li>
+      <li>Utilized <strong>automation testing tools (JMeter)</strong> and manual testing methodologies to ensure comprehensive test coverage across all payment flows.</li>
+      <li>Created and maintained documentation for testing activities, ensuring software met regulatory standards and specifications for national financial systems.</li>
     </ul>
   </div>
 
-  <div class="project">
+  <!-- Trade Management System -->
+  <div class="project-block reveal">
+    <div class="project-num">Project 02</div>
     <h2>Trade Management System (TMS)</h2>
-    <h3>The Trade Management System (TMS) refers to a software platform or system  established by NEPSE (Nepal Stock Exchange) and is used for managing various aspects of trade and financial transactions related to stock exchanges, commodity trading and financial markets</h3>
-    <ul>
-      <li>
-        Develop and implement quality assurance procedures and guidelines to ensure adherence to industry standards and regulatory requirements.
-      </li>
-      <li>
-        Collaborate with cross-functional teams to establish product quality metrics and goals, leading to significant reduction in defects and improved overall product performance.
-      </li>
-      <li>
-        Conduct thorough product testing, including functional, performance, and regression testing, to identify and resolve issues during the development lifecycle.
-      </li>
-      <li>
-        Participate in design reviews and risk assessments to identify potential quality issues and recommend improvements, resulting in increased product robustness.
-      </li>
-      <li>
-        Involve in root cause analysis (RCA) investigations for defects and issues, providing actionable solutions and preventing future occurrences.
-      </li>
-      <li>
-        Create and maintain accurate and detailed records of quality assurance activities, test results, and improvement initiatives for documentation and audit purposes.
-      </li>
+    <p class="desc">A software platform established by NEPSE for managing trade and financial transactions across stock exchanges, commodity trading, and financial markets — serving brokers, market makers, and institutional investors nationwide.</p>
+    <div class="project-stack">
+      <span class="stack-tag">Java</span>
+      <span class="stack-tag">Spring Boot</span>
+      <span class="stack-tag">Angular</span>
+      <span class="stack-tag">MSSQL</span>
+      <span class="stack-tag">Selenium</span>
+      <span class="stack-tag">JMeter</span>
+      <span class="stack-tag">Burp Suite</span>
+    </div>
+    <ul class="project-bullets">
+      <li>Developed and implemented <strong>QA procedures and guidelines</strong> to ensure adherence to industry standards and regulatory requirements for national trading infrastructure.</li>
+      <li>Improved overall product performance by <strong>50%</strong> through comprehensive testing collaboration across development, QA, and business stakeholder teams.</li>
+      <li>Participated in <strong>design reviews and risk assessments</strong> to identify potential quality issues, resulting in increased product robustness and fewer production incidents.</li>
+      <li>Conducted <strong>Root Cause Analysis (RCA)</strong> investigations for defects and issues, providing actionable solutions and preventing future occurrences in high-frequency trading workflows.</li>
+      <li>Maintained accurate and detailed records of QA activities, test results, and improvement initiatives for documentation and regulatory audit purposes.</li>
     </ul>
   </div>
 
-  <div class="project">
+  <!-- Broker Back Office -->
+  <div class="project-block reveal">
+    <div class="project-num">Project 03</div>
     <h2>Broker Back Office System Software (BOSS)</h2>
-    <h3>Broker’s Back Office System Software (BOSS) is a comprehensive accounting system designed to manage financial records, automate tasks, handle payroll and taxes, generate reports, ensure data security, and maintain compliance, facilitating seamless day-to-day financial operations for Brokers registered with NEPSE (Nepal Stock Exchange).</h3>
-    <ul>
-      <li>
-        Perform comprehensive product testing throughout the development process to detect and address problems, encompassing functional, performance, and regression testing.
-      </li>
-      <li>
-        Conduct routine product inspections, testing, and sampling to identify deviations from quality requirements and initiate corrective actions.
-      </li>
+    <p class="desc">A comprehensive accounting and operations system designed to manage financial records, automate workflows, handle payroll and tax operations, and ensure compliance for all brokers registered with NEPSE.</p>
+    <div class="project-stack">
+      <span class="stack-tag">Java</span>
+      <span class="stack-tag">Spring Boot</span>
+      <span class="stack-tag">MSSQL</span>
+      <span class="stack-tag">BIRT Reporting</span>
+      <span class="stack-tag">Jasper</span>
+    </div>
+    <ul class="project-bullets">
+      <li>Performed comprehensive product testing throughout the development process to detect and address problems encompassing functional, performance, and regression testing.</li>
+      <li>Conducted routine <strong>product inspections, testing, and sampling</strong> to identify deviations from quality requirements and initiate corrective actions for broker-facing workflows.</li>
+      <li>Developed and customized <strong>BIRT and Jasper reports</strong> enabling comprehensive data visualization and business analytics for broker stakeholders, replacing manual reporting workflows.</li>
     </ul>
   </div>
 
-  <div class="project">
+  <!-- NOTS -->
+  <div class="project-block reveal">
+    <div class="project-num">Project 04</div>
     <h2>NEPSE Online Trading System (NOTS)</h2>
-    <h3>NEPSE Online Trading System (NOTS) is based on multiple microservices and monolithic applications. The basic objective of NOTS is to facilitate transactions in its trading floor through members, market intermediaries, such as brokers, market makers etc.</h3>
-    <ul>
-      <li>
-        Working as a software developer in the NEPSE Website, NOTS Internal Application, and NEPSE Surveillance System.
-      </li>
-      <li>
-        Development of user interface components using Angular and server-side development using Java EE and JPA with MSSQL as the database.
-      </li>
-      <li>
-        Coordinate with the team to improve existing features and implement new ones.
-      </li>
-      <li>
-        Create client-side user interfaces.
-      </li>
-      <li>
-        Implement new software features and maintain legacy functionality.
-      </li>
-      <li>
-        Provide support for handling production issues.
-      </li>
-      <li>
-        Work using agile software development methodology.
-      </li>
-      <li>
-        Develop new applications and modify existing ones to improve user experience and performance.
-      </li>
-      <li>
-        Support activities like tracing logs and deploying hotfixes for bugs in production when needed.
-      </li>
+    <p class="desc">A microservices and monolithic hybrid platform facilitating transactions in NEPSE's trading floor through members and market intermediaries including brokers, market makers, and institutional investors.</p>
+    <div class="project-stack">
+      <span class="stack-tag">Java EE</span>
+      <span class="stack-tag">Spring Boot</span>
+      <span class="stack-tag">Angular</span>
+      <span class="stack-tag">JPA</span>
+      <span class="stack-tag">MSSQL</span>
+      <span class="stack-tag">Redis</span>
+      <span class="stack-tag">Docker</span>
+    </div>
+    <ul class="project-bullets">
+      <li>Worked as a software developer on the <strong>NEPSE Website, NOTS Internal Application, and NEPSE Surveillance System</strong> — three interconnected national-scale platforms.</li>
+      <li>Built user interface components using <strong>Angular</strong> and server-side logic using <strong>Java EE and JPA</strong> with MSSQL as the primary database.</li>
+      <li>Implemented <strong>High Availability (HA)</strong> multi-server architecture using Spring Boot, improving system reliability and user engagement by 30% under peak-traffic conditions.</li>
+      <li>Implemented <strong>Redis caching</strong> for frequently accessed endpoints, measurably reducing database load and response times for real-time data feeds.</li>
+      <li>Developed new application features and maintained legacy functionality, supporting production issue resolution including log tracing and hotfix deployments.</li>
+      <li>Collaborated using <strong>Agile/Scrum</strong> methodology, coordinating with cross-functional teams to improve existing features and implement new ones on tight release cycles.</li>
     </ul>
   </div>
-<a href="index.html" class="cta" style="margin: 2rem auto; display: block; width: fit-content;">Back to Homepage</a>
 
-  <script src="script.js"></script>
-  <!-- Bootstrap dependencies (place before closing </body>) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <a href="experience.html" class="back-link reveal">
+    <i class="fas fa-arrow-left"></i> Back to Experience
+  </a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Hrishabh Mahaju. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("navToggle").addEventListener("click", () => {
+    document.getElementById("navLinks").classList.toggle("open");
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
