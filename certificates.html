@@ -7,335 +7,15 @@
   <title>Certifications | Hrishabh Mahaju</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    :root {
-      --navy: #02066F;
-      --navy-deep: #010447;
-      --accent: #3B5BDB;
-      --accent-light: #748FFC;
-      --bg: #F7F8FC;
-      --text: #1a1a2e;
-      --text-muted: #6b7280;
-      --border: #e5e7f0;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(247,248,252,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-brand {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: var(--navy);
-      text-decoration: none;
-    }
-
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      padding: 0.4rem 0.75rem;
-      border-radius: 6px;
-      transition: color 0.2s, background 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: rgba(2,6,111,0.06); }
-    .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: var(--navy); cursor: pointer; }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--bg); padding: 1rem 2rem; border-bottom: 1px solid var(--border); gap: 0; }
-      .nav-links.open { display: flex; }
-      .nav-toggle { display: block; }
-    }
-
-    /* ── PAGE HERO ── */
-    .page-hero {
-      background: var(--navy-deep);
-      padding: 7rem 2rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(116,143,252,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(116,143,252,0.07) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .page-hero-content { position: relative; z-index: 2; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .page-hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: white;
-      letter-spacing: -1px;
-      margin-bottom: 0.75rem;
-    }
-
-    .page-hero p {
-      color: rgba(255,255,255,0.6);
-      font-size: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    /* ── MAIN ── */
-    main {
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 4rem 2rem 5rem;
-    }
-
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-
-    .filter-btn {
-      background: white;
-      border: 1.5px solid var(--border);
-      color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: white;
-    }
-
-    /* ── CERT GRID ── */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .cert-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: box-shadow 0.25s, transform 0.25s;
-      position: relative;
-    }
-
-    .cert-card:hover {
-      box-shadow: 0 10px 32px rgba(2,6,111,0.1);
-      transform: translateY(-3px);
-    }
-
-    .cert-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .cert-card:hover::before { opacity: 1; }
-
-    .cat-mlops .cert-card::before  { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
-    .cat-data  .cert-card::before  { background: linear-gradient(90deg, #1d4ed8, #60a5fa); }
-    .cat-web   .cert-card::before  { background: linear-gradient(90deg, #065f46, #34d399); }
-    .cat-skill .cert-card::before  { background: linear-gradient(90deg, #b45309, #fbbf24); }
-    .cat-other .cert-card::before  { background: linear-gradient(90deg, #374151, #9ca3af); }
-
-    .cert-body {
-      padding: 1.25rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-    }
-
-    .cert-icon-wrap {
-      width: 40px; height: 40px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .cat-mlops .cert-icon-wrap  { background: #ede9fe; color: #6d28d9; }
-    .cat-data  .cert-icon-wrap  { background: #dbeafe; color: #1d4ed8; }
-    .cat-web   .cert-icon-wrap  { background: #dcfce7; color: #15803d; }
-    .cat-skill .cert-icon-wrap  { background: #fef3c7; color: #b45309; }
-    .cat-other .cert-icon-wrap  { background: #f3f4f6; color: #374151; }
-
-    .cert-info { flex: 1; }
-
-    .cert-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.35;
-      margin-bottom: 0.3rem;
-    }
-
-    .cert-meta {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .cert-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      padding: 0 1.25rem 1.25rem;
-    }
-
-    .cert-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.18rem 0.55rem;
-      border-radius: 4px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: #374151;
-    }
-
-    /* Resume badge */
-    .resume-badge {
-      position: absolute;
-      top: 0.75rem; right: 0.75rem;
-      background: var(--navy);
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-    }
-
-    /* ── LIGHTBOX ── */
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-
-    .lightbox-overlay.open { display: flex; }
-
-    .lightbox-inner {
-      position: relative;
-      max-width: 860px;
-      width: 100%;
-      background: white;
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .lightbox-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .lightbox-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .lightbox-close {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .lightbox-close:hover { color: var(--navy); }
-
-    .lightbox-embed {
-      width: 100%;
-      height: 560px;
-      border: none;
-    }
-
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #010335;
-      color: rgba(255,255,255,0.35);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.82rem;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="index.html">HM</a>
-  <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  <a class="nav-brand" href="index.html">HM<span class="nav-brand-dot"></span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#education">Education</a></li>
@@ -346,6 +26,12 @@
     <li><a href="https://medium.com/@hrishabh360" target="_blank">Blog</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <div class="nav-controls">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+    <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  </div>
 </nav>
 
 <!-- PAGE HERO -->
@@ -688,18 +374,24 @@
 </footer>
 
 <script>
-  // Nav toggle
+  const _body = document.body, _btn = document.getElementById('themeToggle'), _icon = document.getElementById('themeIcon');
+  if (localStorage.getItem('theme') === 'light') { _body.classList.add('light'); _icon.className = 'fas fa-sun'; }
+  _btn.addEventListener('click', () => {
+    _body.classList.toggle('light');
+    const isLight = _body.classList.contains('light');
+    _icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
   document.getElementById("navToggle").addEventListener("click", () => {
     document.getElementById("navLinks").classList.toggle("open");
   });
 
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
   }, { threshold: 0.06 });
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-  // Filter
   const filterBtns = document.querySelectorAll(".filter-btn");
   const certItems = document.querySelectorAll(".cert-item");
 
@@ -715,7 +407,6 @@
     });
   });
 
-  // Lightbox
   function openLightbox(src, title) {
     document.getElementById("lightboxTitle").textContent = title;
     document.getElementById("lightboxEmbed").src = src;
@@ -729,12 +420,10 @@
     document.body.style.overflow = "";
   }
 
-  // Close on backdrop click
   document.getElementById("lightbox").addEventListener("click", function(e) {
     if (e.target === this) closeLightbox();
   });
 
-  // Close on Escape
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 </script>
 

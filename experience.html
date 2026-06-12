@@ -7,341 +7,31 @@
   <title>Experience | Hrishabh Mahaju</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    :root {
-      --navy: #02066F;
-      --navy-deep: #010447;
-      --accent: #3B5BDB;
-      --accent-light: #748FFC;
-      --bg: #F7F8FC;
-      --bg-card: #ffffff;
-      --text: #1a1a2e;
-      --text-muted: #6b7280;
-      --border: #e5e7f0;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(247, 248, 252, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-brand {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: var(--navy);
-      text-decoration: none;
-    }
-
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      padding: 0.4rem 0.75rem;
-      border-radius: 6px;
-      transition: color 0.2s, background 0.2s;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--navy);
-      background: rgba(2,6,111,0.06);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      color: var(--navy);
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--bg); padding: 1rem 2rem; border-bottom: 1px solid var(--border); gap: 0; }
-      .nav-links.open { display: flex; }
-      .nav-toggle { display: block; }
-    }
-
-    /* ── PAGE HERO ── */
-    .page-hero {
-      background: var(--navy-deep);
-      padding: 7rem 2rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(116,143,252,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(116,143,252,0.07) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .page-hero-content { position: relative; z-index: 2; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .page-hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: white;
-      letter-spacing: -1px;
-      margin-bottom: 0.75rem;
-    }
-
-    .page-hero p {
-      color: rgba(255,255,255,0.6);
-      font-size: 1.02rem;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    /* ── TIMELINE LAYOUT ── */
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 4rem 2rem 5rem;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), rgba(59,91,219,0.1));
-      border-radius: 2px;
-    }
-
-    /* ── EXPERIENCE CARD ── */
-    .exp-card {
-      position: relative;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-
-    .exp-card:hover {
-      box-shadow: 0 12px 36px rgba(2,6,111,0.09);
-      transform: translateX(4px);
-    }
-
-    /* Timeline dot */
-    .exp-card::before {
-      content: "";
-      position: absolute;
-      left: -2.45rem;
-      top: 1.85rem;
-      width: 12px; height: 12px;
-      background: var(--accent);
-      border: 2px solid white;
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(59,91,219,0.2);
-    }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.5rem;
-    }
-
-    .exp-company {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .exp-date {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: white;
-      background: var(--accent);
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .exp-current {
-      background: #059669;
-    }
-
-    .exp-role {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-    }
-
-    .exp-location {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .exp-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .stack-tag {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: #374151;
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.2rem 0.6rem;
-      border-radius: 5px;
-    }
-
-    .exp-bullets {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .exp-bullets li {
-      display: flex;
-      gap: 0.75rem;
-      font-size: 0.92rem;
-      color: #374151;
-      line-height: 1.6;
-    }
-
-    .exp-bullets li::before {
-      content: "▸";
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 0.05rem;
-      font-size: 0.85rem;
-    }
-
-    .exp-bullets li strong { color: var(--navy); }
-
-    .exp-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      border: 1.5px solid var(--accent);
-      padding: 0.4rem 1rem;
-      border-radius: 7px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .exp-link:hover {
-      background: var(--accent);
-      color: white;
-    }
-
-    /* Promotion badge inside same company */
-    .exp-promotion {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      background: #fef3c7;
-      color: #b45309;
-      padding: 0.2rem 0.65rem;
-      border-radius: 999px;
-      margin-bottom: 0.75rem;
-    }
-
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #010335;
-      color: rgba(255,255,255,0.35);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.82rem;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="index.html">HM</a>
-  <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  <a class="nav-brand" href="index.html">HM<span class="nav-brand-dot"></span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#education">Education</a></li>
     <li><a href="experience.html" class="active">Experience</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="index.html#skills">Skills</a></li>
-    <li><a href="index.html#certifications">Certifications</a></li>
+    <li><a href="certificates.html">Certifications</a></li>
     <li><a href="https://medium.com/@hrishabh360" target="_blank">Blog</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <div class="nav-controls">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+    <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  </div>
 </nav>
 
 <!-- PAGE HERO -->
@@ -350,7 +40,7 @@
   <div class="page-hero-content">
     <span class="section-label">Career Timeline</span>
     <h1>Work Experience</h1>
-    <p>3+ years of production software engineering across national-scale systems, AI development, and cloud data pipelines.</p>
+    <p>3+ years of production software engineering across national-scale systems, AI engineering, academic research, and cloud data pipelines.</p>
   </div>
 </div>
 
@@ -358,19 +48,43 @@
 <main>
   <div class="timeline">
 
+    <!-- Research Assistant -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">University of New Haven — Market Mind Project</div>
+        <span class="exp-date exp-current">Aug 2025 – Present</span>
+      </div>
+      <div class="exp-role">Research Assistant · AI-Driven Decision Support for Higher Ed Recruitment</div>
+      <div class="exp-location"><i class="fas fa-map-marker-alt"></i> West Haven, CT &nbsp;·&nbsp; Advisors: Dr. Ardiana Sula, Dr. Muhammad Aminul Islam</div>
+      <div class="exp-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Scikit-Learn</span>
+        <span class="stack-tag">Pandas</span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">NextJS</span>
+        <span class="stack-tag">TF-IDF / NLP</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Co-developed an AI-driven MVP platform converting raw ad campaign data (Google, Meta, Bing, LinkedIn) and CRM records (<strong>9,000+ inquiries</strong>) into enrollment intelligence for university marketing teams.</li>
+        <li>Built and validated <strong>5 ML models</strong> (regression + classification) for ad performance prediction, content scoring, keyword ranking, and CRM funnel conversion (<strong>AUC up to 0.81</strong>).</li>
+        <li>Led Phase 2 validation effort: reproduced Phase 1 benchmarks exactly, ran gap analysis on new campaign data, and authored data pipeline recommendations adopted for Phase 3 roadmap.</li>
+      </ul>
+    </div>
+
     <!-- AI Trusted Advisors -->
     <div class="exp-card reveal">
       <div class="exp-header">
-        <div class="exp-company">AI Trusted Advisors — Webstars LLC</div>
-        <span class="exp-date exp-current">Oct 2025 – Present</span>
+        <div class="exp-company">Webstars LLC / AI Trusted Advisors</div>
+        <span class="exp-date">Dec 2025 – May 2026</span>
       </div>
-      <div class="exp-role">AI Engineer Intern · Founding Team Contributor</div>
+      <div class="exp-role">AI Engineer Intern</div>
       <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Remote, USA</div>
       <div class="exp-stack">
         <span class="stack-tag">Python</span>
         <span class="stack-tag">Voice AI</span>
-        <span class="stack-tag">LangChain</span>
+        <span class="stack-tag">AI Agents</span>
         <span class="stack-tag">MCP</span>
+        <span class="stack-tag">LangChain</span>
         <span class="stack-tag">ReactJS</span>
         <span class="stack-tag">NodeJS</span>
         <span class="stack-tag">Agile</span>
@@ -378,9 +92,7 @@
       <ul class="exp-bullets">
         <li>Designed and developed custom <strong>Voice AI agents</strong> and MCP platform solutions to support client acquisition, internal automation, and partner integrations for a U.S.-focused AI advisory startup.</li>
         <li>Built backend infrastructure for agent/partner access portals, including usage tracking, billing, and platform reliability; responsible for weekly backups and outage response.</li>
-        <li>Developed AI-powered cold outreach automation with <strong>A/B testing pipelines</strong> targeting 50,000–100,000+ emails/month, and social media AI agents across LinkedIn, Reddit, Instagram, and TikTok.</li>
-        <li>Architecting end-to-end AI agent workflows using LangChain and MCP, integrating with client CRMs and communication platforms to automate lead qualification and appointment-setting pipelines.</li>
-        <li>Collaborating directly with founding team on technical architecture, platform security, compliance, and product roadmap decisions.</li>
+        <li>Developed AI-powered cold outreach automation with <strong>A/B testing pipelines</strong> targeting 50,000–100,000+ emails/month, and built social media AI agents across LinkedIn, Reddit, Instagram, and TikTok.</li>
       </ul>
     </div>
 
@@ -398,14 +110,14 @@
         <span class="stack-tag">JMeter</span>
         <span class="stack-tag">Burp Suite</span>
         <span class="stack-tag">Postman</span>
-        <span class="stack-tag">Bash</span>
+        <span class="stack-tag">MSSQL</span>
         <span class="stack-tag">Scrum</span>
       </div>
       <ul class="exp-bullets">
         <li>Improved software performance by <strong>50%</strong> through full automation testing (functional, regression, performance) across a microservices-based Fund Management and Trade Management System for Nepal's national stock exchange.</li>
         <li>Acted as <strong>Product Owner</strong>: owned QA backlog, prioritized features across 3 cross-functional teams, and conducted RCA investigations that cut recurring production incidents by ~40%.</li>
         <li>Contributed to API design reviews and security assessments using Burp Suite, identifying vulnerabilities before production release.</li>
-        <li>Participated in software architecture discussions and system optimization initiatives for high-availability (HA) trading infrastructure handling thousands of concurrent transactions.</li>
+        <li>Participated in software architecture discussions and system optimization initiatives for high-availability trading infrastructure handling thousands of concurrent transactions.</li>
       </ul>
       <a href="yco_project_experience.html" class="exp-link">
         <i class="fas fa-folder-open"></i> View Detailed NEPSE Projects
@@ -416,7 +128,7 @@
     <div class="exp-card reveal">
       <div class="exp-header">
         <div class="exp-company">YCO Pvt. Ltd. — NEPSE Project</div>
-        <span class="exp-date">Oct 2021 – May 2023</span>
+        <span class="exp-date">Oct 2021 – Jun 2023</span>
       </div>
       <div class="exp-promotion"><i class="fas fa-arrow-up"></i> Promoted from Intern → Trainee → Associate SDE</div>
       <div class="exp-role">Associate Software Development Engineer</div>
@@ -473,6 +185,15 @@
 </footer>
 
 <script>
+  const _body = document.body, _btn = document.getElementById('themeToggle'), _icon = document.getElementById('themeIcon');
+  if (localStorage.getItem('theme') === 'light') { _body.classList.add('light'); _icon.className = 'fas fa-sun'; }
+  _btn.addEventListener('click', () => {
+    _body.classList.toggle('light');
+    const isLight = _body.classList.contains('light');
+    _icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
   document.getElementById("navToggle").addEventListener("click", () => {
     document.getElementById("navLinks").classList.toggle("open");
   });
